@@ -1,0 +1,26 @@
+[
+  {
+    "marca": "Dior",
+    "nombre": "Sauvage Eau de Toilette",
+    "tamano": "10ml",
+    "precio": "$180 MXN",
+    "descripcion": "Notas frescas con ambroxan. Ideal para diario.",
+    "imagen": "img/sauvageEDT.jpg"
+  },
+  {
+    "marca": "Chanel",
+    "nombre": "Bleu de Chanel Parfum",
+    "tamano": "5ml",
+    "precio": "$150 MXN",
+    "descripcion": "Fragancia amaderada sofisticada.",
+    "imagen": "img/bdcP.jpg"
+  },
+  {
+    "marca": "Maison Margiela",
+    "nombre": "By The Fireplace",
+    "tamano": "5ml",
+    "precio": "$200",
+    "descripcion": "Fragancia unisex que busca evocar la sensación reconfortante de una chimenea en invierno.",
+    "imagen": "img/BYTHEFIREPLACE.jpg"
+  }
+]

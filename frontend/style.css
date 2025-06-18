@@ -1,0 +1,313 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #FAFAFA;
+    color: #1F1F1F;
+    line-height: 1.6;
+  }
+  
+  /* HERO */
+  .hero {
+    background-image: url('/frontend/img/fondo-perfume.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+  }
+  
+  .hero-content {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    padding: 30px;
+    border-radius: 12px;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .btn {
+    background-color: #817478;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #404E4D;
+  }
+  
+  /* SECCIÓN: VENTAJAS */
+  .ventajas {
+    padding: 3rem 1rem;
+    background-color: #FAFAFA;
+    text-align: center;
+  }
+  
+  .ventajas h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .ventajas-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .ventaja {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+  }
+  
+  .ventaja i {
+    font-size: 2rem;
+    color: #404E4D;
+    margin-bottom: 0.5rem;
+  }
+  
+  .ventaja h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: #1F1F1F;
+  }
+  
+  .ventaja p {
+    color: #817478;
+    font-size: 0.95rem;
+  }
+  
+  /* Responsive */
+  @media (min-width: 600px) {
+    .ventajas-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  /* SECCIÓN: TESTIMONIOS */
+  .testimonios {
+    background-color: #FAFAFA;
+    padding: 3rem 1rem;
+    text-align: center;
+  }
+  
+  .testimonios h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #1F1F1F;
+  }
+  
+  .testimonios-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .testimonio {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+  
+  .testimonio img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+  
+  .testimonio h3 {
+    margin-bottom: 0.5rem;
+    color: #404E4D;
+    font-size: 1.1rem;
+  }
+  
+  .testimonio p {
+    font-size: 0.95rem;
+    color: #817478;
+    margin-bottom: 0.5rem;
+  }
+  
+  .estrellas {
+    color: #FFD700;
+    font-size: 1rem;
+  }
+  
+  /* Responsive */
+  @media (min-width: 600px) {
+    .testimonios-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 900px) {
+    .testimonios-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  
+  /* SOBRE NOSOTROS */
+  .sobre-nosotros {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+  }
+  
+  /* FOOTER */
+  footer {
+    background-color: #1F1F1F;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 20px;
+    margin-top: 60px;
+    font-size: 0.9rem;
+  }
+  
+/* CATÁLOGO */
+.catalogo {
+    max-width: 960px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+  }
+  
+  .catalogo h2 {
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #1F1F1F;
+  }
+  
+  .productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  
+  .producto {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+
+  
+  .producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .producto h3 {
+    font-size: 1.2rem;
+    color: #817478;
+    margin-bottom: 5px;
+  }
+  
+  .producto p {
+    margin: 5px 0;
+    color: #404E4D;
+  }
+
+  .p_enca{
+    font-weight: bolder;
+  }
+
+  .p_nom{ 
+    text-decoration: underline;
+  }
+
+  
+  .agregar-producto {
+    max-width: 600px;
+    margin: 60px auto;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .agregar-producto form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  
+  
+  .agregar-producto input,
+  .agregar-producto button {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  
+  .agregar-producto button {
+    background-color: #817478;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .agregar-producto button:hover {
+    background-color: #404E4D;
+  }
+  
+  @media (max-width: 600px) { 
+        .ventajas-grid{
+            display: grid;
+            grid-template-columns: auto auto ;
+        }
+
+        .ventaja{
+            text-align: center;
+        
+        }
+
+        .btn{
+            display: block;
+            min-width: 100%;
+            font-size: 1rem;
+        }
+        .ventaja{
+            align-content: center;
+        }
+
+        .testimonios-grid{
+            grid-template-columns: 1fr;
+        }
+   }
+
+   .seccion {
+    padding: 4rem 1rem;
+    border-bottom: 1px solid #eee;
+  }
+  
