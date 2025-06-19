@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decantsnap - Fragancias Originales en Miniatura</title>
+  <link rel="stylesheet" href="/frontend/style.css">
+  <script src="/frontend/script.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+
+</head>
+<body>
+
+  <!-- Hero principal -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Decantsnap</h1>
+      <p>Tu tienda de decants originales. Llévalos contigo a donde sea.</p>
+      <a href="#catalogo" class="btn">Ver catálogo</a>
+    </div>
+  </header>
+
+  <!-- Ventajas / servicios -->
+  <section class="ventajas">
+    <h2>¿Por qué elegir Decantsnap?</h2>
+    <div class="ventajas-grid">
+      <div class="ventaja">
+        <i class="fa-solid fa-spray-can-sparkles"></i>
+        <h3>Perfumes Originales</h3>
+        <p>Garantizamos decants auténticos, sin imitaciones.</p>
+      </div>
+      <div class="ventaja">
+        <i class="fa-solid fa-truck-fast"></i>
+        <h3>Envíos Rápidos</h3>
+        <p>Recibe tus decants en 1-3 días hábiles.</p>
+      </div>
+      <div class="ventaja">
+        <i class="fa-solid fa-shield-heart"></i>
+        <h3>Compra Segura</h3>
+        <p>Pagos protegidos y atención personalizada.</p>
+      </div>
+      <div class="ventaja">
+        <i class="fa-solid fa-star"></i>
+        <h3>Clientes Felices</h3>
+        <p>Más de 500 reseñas positivas.</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Testimonios -->
+  <section class="testimonios seccion">
+    <h2>Lo que dicen nuestros clientes</h2>
+    <div class="testimonios-grid">
+      <div class="testimonio">
+        <img src="img/testimonio1.jpg" alt="Cliente 1">
+        <h3>Sofía Martínez</h3>
+        <p>"Excelente calidad, recibí mi decant en 2 días. ¡Repetiré sin duda!"</p>
+        <div class="estrellas">★★★★★</div>
+      </div>
+      <div class="testimonio">
+        <img src="img/testimonio2.jpg" alt="Cliente 2">
+        <h3>Marco Ruiz</h3>
+        <p>"El aroma es idéntico al original. Muy buena atención."</p>
+        <div class="estrellas">★★★★☆</div>
+      </div>
+      <div class="testimonio">
+        <img src="img/testimonio3.jpg" alt="Cliente 3">
+        <h3>Luisa Ortega</h3>
+        <p>"Me encanta el empaque y el perfume es increíble."</p>
+        <div class="estrellas">★★★★★</div>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Sobre nosotros -->
+  <section class="sobre-nosotros">
+    <h2>Sobre Decantsnap</h2>
+    <p>Somos amantes de las fragancias y queremos que todos puedan disfrutar de sus perfumes favoritos sin pagar de más. Enviamos decants originales a todo México, cuidadosamente envasados y con garantía de autenticidad.</p>
+  </section>
+  <section class="catalogo" id="catalogo">
+    <h2>Catálogo de Decants</h2>
+    <input type="text" id="buscador" placeholder="Buscar por marca o nombre..." style="margin-bottom: 30px; padding: 10px; width: 100%; max-width: 500px; border: 1px solid #ccc; border-radius: 6px;">
+    
+    <section class="agregar-producto">
+        <h2>Agregar nuevo decant</h2>
+        <form id="formulario">
+          <input type="text" id="marca" placeholder="Marca" required>
+          <input type="text" id="nombre" placeholder="Nombre del perfume" required>
+          <input type="text" id="tamano" placeholder="Tamaño (ej: 5ml)" required>
+          <input type="text" id="precio" placeholder="Precio (ej: $200 MXN)" required>
+          <input type="text" id="descripcion" placeholder="Descripción breve" required>
+          <input type="text" id="imagen" placeholder="Ruta de imagen (img/ejemplo.jpg)">
+          <button type="submit">Agregar producto</button>
+        </form>
+      </section>
+      
+    <div class="productos">
+      
+      <div class="producto">
+        <h3>Dior</h3>
+        <p><strong>Sauvage Eau de Toilette</strong></p>
+        <p>Tamaño: 5ml</p>
+        <p>Precio: $180 MXN</p>
+      </div>
+  
+      <div class="producto">
+        <h3>Chanel</h3>
+        <p><strong>Bleu de Chanel Parfum</strong></p>
+        <p>Tamaño: 10ml</p>
+        <p>Precio: $320 MXN</p>
+      </div>
+  
+      <div class="producto">
+        <h3>Maison Margiela</h3>
+        <p><strong>By the Fireplace</strong></p>
+        <p>Tamaño: 5ml</p>
+        <p>Precio: $260 MXN</p>
+      </div>
+  
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Decantsnap. Todos los derechos reservados.</p>
+    <p>Instagram | WhatsApp | Correo: contacto@decantsnap.com</p>
+  </footer>
+</body>
+</html>
