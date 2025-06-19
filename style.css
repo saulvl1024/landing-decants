@@ -14,7 +14,7 @@
   
   /* HERO */
   .hero {
-    background-image: url('/frontend/img/fondo-perfume.jpg');
+    background-image: url('/public/img/fondo-perfume.jpg');
     background-size: cover;
     background-position: center;
     color: white;
