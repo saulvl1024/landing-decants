@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
           })
             .then(res => res.json())
             .then(() => {
-              productos.splice(index, 1); 
+              
               mostrarProductos(productos);
             })
             .catch(err => console.error("Error al eliminar:", err));
@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
   function cargarProductos() {
-    fetch("API_BASE_URL}/productos")
+    fetch(`${API_BASE_URL}/productos`)
       .then(res => res.json())
       .then(data => {
         productos = data;
@@ -106,7 +106,7 @@ formulario.addEventListener("submit", function (e) {
     mostrarProductos(productos);
   } else {
     // //AGREGAR POST
-    fetch("API_BASE_URL}/productos", {
+    fetch(`${API_BASE_URL}/productos`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
