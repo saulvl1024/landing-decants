@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/saulvl1024/landing-decants/issues"
   },
-  "homepage": "https://saulvl1024.github.io/landing-decants",
+  "homepage": "https://saulvl1024.github.io/landing-decants/",
   "description": "",
   "dependencies": {
     "cors": "^2.8.5",
