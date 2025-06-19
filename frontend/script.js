@@ -36,6 +36,10 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("descripcion").value = producto.descripcion;
         document.getElementById("imagen").value = producto.imagen.replace("img/", "");
       });
+
+      
+
+      //ELIMINAR DELETE
       const botonEliminar = div.querySelector(".eliminar");
         botonEliminar.addEventListener("click", () => {
           fetch(`http://localhost:3000/api/productos/${index}`, {
@@ -52,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+    
   function cargarProductos() {
     fetch("http://localhost:3000/api/productos")
       .then(res => res.json())
@@ -64,6 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
+  //BUSCADOR
   inputBuscador.addEventListener("input", () => {
     const texto = inputBuscador.value.toLowerCase();
     const filtrados = productos.filter(p => {
@@ -73,6 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
     mostrarProductos(filtrados);
   });
 
+  //LLENADO DE FORMULARIO
 formulario.addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -92,7 +99,7 @@ formulario.addEventListener("submit", function (e) {
     delete formulario.dataset.editarIndice;
     mostrarProductos(productos);
   } else {
-    // Enviar al backend
+    // //AGREGAR POST
     fetch("http://localhost:3000/api/productos", {
       method: "POST",
       headers: {

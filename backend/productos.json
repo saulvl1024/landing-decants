@@ -22,5 +22,13 @@
     "precio": "$200",
     "descripcion": "Fragancia unisex que busca evocar la sensación reconfortante de una chimenea en invierno.",
     "imagen": "img/BYTHEFIREPLACE.jpg"
+  },
+  {
+    "marca": "Dior",
+    "nombre": "Sauvage Eu De Parfum",
+    "tamano": "10ml",
+    "precio": "$200",
+    "descripcion": "fragancia masculina que ofrece una combinación única de frescura y sensualidad, con una estela intensa y duradera",
+    "imagen": "img/default.jpg"
   }
 ]
