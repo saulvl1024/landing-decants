@@ -7,7 +7,10 @@ const app = express();
 const PORT = 3000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: "https://saulvl1024.github.io"
+}));
+
 app.use(bodyParser.json());
 
 // Ruta GET para obtener productos
