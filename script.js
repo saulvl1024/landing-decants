@@ -54,7 +54,7 @@ const API_BASE_URL = location.hostname === "localhost"
             .then(res => res.json())
             .then(() => {
               
-              mostrarProductos(productos);
+              cargarProductos();
             })
             .catch(err => console.error("Error al eliminar:", err));
         });
