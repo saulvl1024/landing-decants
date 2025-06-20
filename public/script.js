@@ -47,17 +47,28 @@ const API_BASE_URL = location.hostname === "localhost"
       //ELIMINAR DELETE
       const botonEliminar = div.querySelector(".eliminar");
         botonEliminar.addEventListener("click", () => {
-          if (confirm("¿Seguro que quieres eliminar este producto?")) {
-          fetch(`${API_BASE_URL}/productos/${index}`, {
-            method: "DELETE"
-          })
-            .then(res => res.json())
-            .then(() => {
-              
-              cargarProductos();
+          Swal.fire({
+                  title: '¿Estás seguro?',
+                  text: 'Este producto se eliminará',
+                  icon: 'warning',
+                  showCancelButton: true,
+                  confirmButtonText: 'Sí, eliminar',
+                  cancelButtonText: 'Cancelar'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                          fetch(`${API_BASE_URL}/productos/${index}`, {
+              method: "DELETE"
             })
-            .catch(err => console.error("Error al eliminar:", err));
-          }
+              .then(res => res.json())
+              .then(() => {
+                
+                cargarProductos();
+              })
+              .catch(err => console.error("Error al eliminar:", err));
+            }
+          });
+
+          
         });
     });
   
