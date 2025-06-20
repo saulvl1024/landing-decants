@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const API_BASE_URL = location.hostname === "localhost"
   ? "http://localhost:3000/api"
-  : "https://decantsnap-backend.onrender.com";
+  : "https://decantsnap-backend.onrender.com/api";
 
   let productos = [];
 
