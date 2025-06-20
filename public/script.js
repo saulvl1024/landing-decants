@@ -47,6 +47,8 @@ const API_BASE_URL = location.hostname === "localhost"
       //ELIMINAR DELETE
       const botonEliminar = div.querySelector(".eliminar");
         botonEliminar.addEventListener("click", () => {
+          console.log("Click en botón eliminar", index);
+          alert("¡Detectado clic en botón eliminar!");
           if (confirm("¿Seguro que quieres eliminar este producto?")) {
           fetch(`${API_BASE_URL}/productos/${index}`, {
 
