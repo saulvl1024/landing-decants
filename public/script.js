@@ -49,7 +49,6 @@ const API_BASE_URL = location.hostname === "localhost"
         botonEliminar.addEventListener("click", () => {
           if (confirm("¿Seguro que quieres eliminar este producto?")) {
           fetch(`${API_BASE_URL}/productos/${index}`, {
-
             method: "DELETE"
           })
             .then(res => res.json())
