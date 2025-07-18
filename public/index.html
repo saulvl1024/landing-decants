@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Decantsnap.</title>
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <h1>Decantsnap.</h1>
+    <ul>
+      <li><a href="#nuevos">Nuevos</a></li>
+      <li><a href="#nicho">Nicho</a></li>
+      <li><a href="#arabe">Árabe</a></li>
+      <li><a href="#disenador">Diseñador</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h2>Descubre tu próxima fragancia</h2>
+    <p>Explora nuestro catálogo de perfumes nicho, árabes y de diseñador</p>
+    <a href="#nuevos">Ver catálogo</a>
+  </div>
+
+  <!-- SECCIONES POR TIPO -->
+
+  <section id="nuevos">
+    <h2>Nuevos al catálogo</h2>
+    <div class="swiper nuevo-swiper">
+      <div class="swiper-wrapper" id="swiper-nuevo"></div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </section>
+
+  <section id="nicho">
+    <h2>Perfumes Nicho</h2>
+    <div class="swiper nicho-swiper">
+      <div class="swiper-wrapper" id="swiper-nicho"></div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </section>
+
+  <section id="arabe">
+    <h2>Perfumes Árabes</h2>
+    <div class="swiper arabe-swiper">
+      <div class="swiper-wrapper" id="swiper-arabe"></div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </section>
+
+  <section id="disenador">
+    <h2>Perfumes de Diseñador</h2>
+    <div class="swiper disenador-swiper">
+      <div class="swiper-wrapper" id="swiper-disenador"></div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </section>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script type="module" src="js/index.js"></script> 
+
+
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel de Administración - Decants</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #fff;
+      color: #333;
+      margin: 0;
+      padding: 30px 40px;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 20px;
+      color: #111;
+    }
+
+    .contenedor-admin {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    form {
+      flex: 1;
+      background: #f7f7f7;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .vista-productos {
+      flex: 2;
+      background: #f9f9f9;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      min-height: 500px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      margin-top: 15px;
+      color: #111;
+    }
+
+    input[type="text"],
+    input[type="url"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      margin-top: 5px;
+      background-color: #fff;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: #111;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      font-size: 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #333;
+    }
+
+    #mensaje {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    #presentaciones {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #eee;
+      border-radius: 8px;
+    }
+
+    .presentacion-item {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .presentacion-item input {
+      flex: 1;
+    }
+
+    .eliminar-presentacion {
+      background-color: crimson;
+      border: none;
+      color: white;
+      font-weight: bold;
+      padding: 6px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .eliminar-presentacion:hover {
+      background-color: darkred;
+    }
+
+    /* Placeholder para tabla o cards de perfumes */
+    .vista-productos h2 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: #111;
+    }
+
+    .producto-preview {
+      background: #fff;
+      padding: 10px;
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+      border-radius: 6px;
+    }
+
+    .lista-productos {
+  flex: 1;
+  padding: 20px;
+}
+
+.lista-productos table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.lista-productos th,
+.lista-productos td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.lista-productos th {
+  background-color: #111;
+  color: #fff;
+  font-weight: bold;
+}
+
+.lista-productos tr:hover {
+  background-color: #f2f2f2;
+}
+
+.btn-editar,
+.btn-eliminar {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-editar {
+  background-color: #ffc107;
+  color: #111;
+  margin-right: 5px;
+}
+
+.btn-eliminar {
+  background-color: #dc3545;
+  color: white;
+}
+
+  </style>
+</head>
+<body>
+
+  <h1>Panel Administrador</h1>
+
+  <div class="contenedor-admin">
+    <!-- Formulario a la izquierda -->
+    <form id="formulario-producto">
+      <label>Nombre:<br><input type="text" id="nombre" required></label>
+      <label>Marca:<br><input type="text" id="marca"></label>
+      <label>Descripción:<br><textarea id="descripcion"></textarea></label>
+      <label>Imagen URL:<br><input type="url" id="imagenUrl"></label>
+      <label>Notas (separadas por coma):<br><input type="text" id="notas"></label>
+
+      <label>Tipo de perfume:<br>
+        <select id="tipo" required>
+          <option value="">Selecciona una opción</option>
+          <option value="nicho">Nicho</option>
+          <option value="arabe">Arabe</option>
+          <option value="disenador">Diseñador</option>
+        </select>
+      </label>
+
+      <div id="presentaciones">
+        <h3>Presentaciones:</h3>
+        <!-- Contenido dinámico aquí -->
+      </div>
+
+      <button type="button" id="agregar-presentacion">➕ Agregar presentación</button><br>
+      <button type="submit">Agregar</button>
+      <p id="mensaje"></p>
+    </form>
+
+    <hr>
+
+<hr>
+<section class="lista-productos">
+  <h2>Perfumes existentes</h2>
+  <table id="tabla-productos">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Marca</th>
+        <th>Tipo</th>
+        <th>Precio</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</section>
+
+
+  <script src="./js/admins.js"></script>
+</body>
+</html>
