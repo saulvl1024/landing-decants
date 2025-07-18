@@ -1,6 +1,6 @@
 const API_BASE_URL = location.hostname === "localhost"
   ? "http://localhost:3000/api"
-  : "https://decantsnap-backend.onrender.com/api";
+  : "https://decantsnap-backend.onrender.com";
 
 const formulario = document.getElementById('formulario-producto');
 const mensaje = document.getElementById('mensaje');
@@ -22,15 +22,15 @@ document.getElementById('imagenUrl').addEventListener('input', (e) => {
 // Agregar nueva presentación
 agregarPresentacionBtn.addEventListener('click', () => {
   const div = document.createElement('div');
-  div.className = 'presentacion-item';
+  div.className = 'presentacion-input';
 
   div.innerHTML = `
-    <input type="text" placeholder="Tamaño (ej. 5ml)" class="tamano" required>
-    <input type="text" placeholder="Precio (ej. $150)" class="precio" required>
-    <button type="button" class="eliminar">🗑️</button>
+    <input type="text" placeholder="Tamaño (ej. 5ml)" class="input-nombre" required>
+    <input type="text" placeholder="Precio (ej. $150)" class="input-precio" required>
+    <button type="button" class="btn-eliminar-pres">🗑️</button>
   `;
 
-  div.querySelector('.eliminar').addEventListener('click', () => {
+  div.querySelector('.btn-eliminar-pres').addEventListener('click', () => {
     div.remove();
   });
 
@@ -42,7 +42,7 @@ formulario.addEventListener('submit', async (e) => {
   e.preventDefault();
 
   const presentaciones = Array.from(document.querySelectorAll('.presentacion-input')).map(div => ({
-    nombre: div.querySelector('.input-nombre').value,
+    tamanio: div.querySelector('.input-nombre').value,
     precio: parseFloat(div.querySelector('.input-precio').value),
   }));
 
@@ -69,7 +69,7 @@ formulario.addEventListener('submit', async (e) => {
       mensaje.textContent = id ? '✅ Producto actualizado' : '✅ Producto agregado';
       formulario.reset();
       formulario.removeAttribute('data-editando-id');
-      document.getElementById('presentaciones').innerHTML = '';
+      presentacionesDiv.innerHTML = '';
       cargarProductos();
     } else {
       mensaje.textContent = '❌ Error al guardar';
@@ -80,7 +80,7 @@ formulario.addEventListener('submit', async (e) => {
   }
 });
 
-
+// Cargar productos en la tabla
 async function cargarProductos() {
   const res = await fetch(`${API_BASE_URL}/productos`);
   const productos = await res.json();
@@ -88,7 +88,7 @@ async function cargarProductos() {
   const tbody = document.querySelector('#tabla-productos tbody');
   tbody.innerHTML = '';
 
-  productos.forEach((p, index) => {
+  productos.forEach(p => {
     const fila = document.createElement('tr');
     fila.innerHTML = `
       <td>${p.nombre}</td>
@@ -106,6 +106,7 @@ async function cargarProductos() {
 
 window.addEventListener('DOMContentLoaded', cargarProductos);
 
+// Eliminar producto
 async function eliminarProducto(id) {
   if (!confirm('¿Estás seguro de que deseas eliminar este perfume?')) return;
 
@@ -116,7 +117,7 @@ async function eliminarProducto(id) {
 
     if (res.ok) {
       alert('✅ Producto eliminado con éxito');
-      cargarProductos(); // Recargar la tabla
+      cargarProductos();
     } else {
       alert('❌ Error al eliminar el producto');
     }
@@ -126,6 +127,7 @@ async function eliminarProducto(id) {
   }
 }
 
+// Editar producto
 async function editarProducto(id) {
   try {
     const res = await fetch(`${API_BASE_URL}/productos`);
@@ -142,23 +144,24 @@ async function editarProducto(id) {
     document.getElementById('notas').value = producto.notas?.join(', ');
     document.getElementById('tipo').value = producto.tipo;
 
-    // Eliminar presentaciones previas
-    document.getElementById('presentaciones').innerHTML = '';
+    // Limpiar presentaciones previas
+    presentacionesDiv.innerHTML = '';
 
     producto.presentaciones?.forEach(pres => {
       const contenedor = document.createElement('div');
       contenedor.className = 'presentacion-input';
       contenedor.innerHTML = `
-        <input type="text" value="${pres.nombre}" placeholder="Ej: 5ml" class="input-nombre" />
+        <input type="text" value="${pres.tamanio}" placeholder="Ej: 5ml" class="input-nombre" />
         <input type="number" value="${pres.precio}" placeholder="Precio" class="input-precio" />
         <button type="button" class="btn-eliminar-pres">❌</button>
       `;
-      document.getElementById('presentaciones').appendChild(contenedor);
+      contenedor.querySelector('.btn-eliminar-pres').addEventListener('click', () => {
+        contenedor.remove();
+      });
+      presentacionesDiv.appendChild(contenedor);
     });
 
-    // Guardar el ID temporalmente
     formulario.dataset.editandoId = id;
-
   } catch (error) {
     console.error('Error al editar:', error);
     alert('❌ Error al cargar producto');

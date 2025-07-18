@@ -1,15 +1,18 @@
 import { renderCarrusel, initSwiper } from './utils.js';
 
-const API_BASE_URL = location.hostname === "localhost"
-  ? "http://localhost:3000/api"
-  : "https://decantsnap-backend.onrender.com/api";
+// Siempre usar la URL del backend en Render
+const API_BASE_URL = "https://decantsnap-backend.onrender.com/api";
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
     const res = await fetch(`${API_BASE_URL}/productos`);
-    const productos = await res.json();
 
-      console.log("✅ Productos recibidos:", productos);
+    if (!res.ok) {
+      throw new Error(`HTTP ${res.status} - ${res.statusText}`);
+    }
+
+    const productos = await res.json();
+    console.log("✅ Productos recibidos:", productos);
 
     const tipos = ["nuevo", "nicho", "arabe", "disenador"];
     tipos.forEach(tipo => {
@@ -17,7 +20,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       renderCarrusel(filtrados, `swiper-${tipo}`);
       initSwiper(`.${tipo}-swiper`);
     });
+
   } catch (error) {
-    console.error("Error al cargar productos:", error);
+    console.error("❌ Error al cargar productos:", error);
+    alert("Error al cargar productos desde el servidor.");
   }
 });
