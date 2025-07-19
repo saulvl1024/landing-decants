@@ -2,7 +2,7 @@ import { renderCarrusel, initSwiper } from './utils.js';
 
 // Siempre usar la URL del backend en Render
 // config.js
-import { API_BASE_URL } from '../../models/config.js';
+import { API_BASE_URL } from './models/config.js';
 
 
 
