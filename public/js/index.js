@@ -8,7 +8,7 @@ import { API_BASE_URL } from '../../models/config.js';
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const res = await fetch(`${API_BASE_URL}/productos`);
+    const res = await fetch(`${API_BASE_URL}/api/productos`);
 
     if (!res.ok) {
       throw new Error(`HTTP ${res.status} - ${res.statusText}`);
