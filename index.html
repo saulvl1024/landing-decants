@@ -6,7 +6,11 @@
   <title>Decantsnap.</title>
 
   <!-- Swiper CSS -->
+   <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
 </head>
@@ -32,50 +36,54 @@
   </div>
 
   <!-- SECCIONES POR TIPO -->
+   <div class="secciones">
+      <section id="nuevos">
+        <h2>Nuevos al catálogo</h2>
+        <div class="swiper nuevo-swiper">
+          <div class="swiper-wrapper" id="swiper-nuevo"></div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </section>
+<div class="hnicho">
+</div>
+      <section id="nicho">
+        <h2>Perfumes Nicho</h2>
+        <div class="swiper nicho-swiper">
+          <div class="swiper-wrapper" id="swiper-nicho"></div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </section>
 
-  <section id="nuevos">
-    <h2>Nuevos al catálogo</h2>
-    <div class="swiper nuevo-swiper">
-      <div class="swiper-wrapper" id="swiper-nuevo"></div>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
+      <section id="arabe">
+        <h2>Perfumes Árabes</h2>
+        <div class="swiper arabe-swiper">
+          <div class="swiper-wrapper" id="swiper-arabe"></div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </section>
+
+      <section id="disenador">
+        <h2>Perfumes de Diseñador</h2>
+        <div class="swiper disenador-swiper">
+          <div class="swiper-wrapper" id="swiper-disenador"></div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </section>
     </div>
-  </section>
+  <!-- archivos JS -->
+    <!-- index.html -->
+  <script type="module" src="public/js/index.js"></script>
 
-  <section id="nicho">
-    <h2>Perfumes Nicho</h2>
-    <div class="swiper nicho-swiper">
-      <div class="swiper-wrapper" id="swiper-nicho"></div>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-    </div>
-  </section>
-
-  <section id="arabe">
-    <h2>Perfumes Árabes</h2>
-    <div class="swiper arabe-swiper">
-      <div class="swiper-wrapper" id="swiper-arabe"></div>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-    </div>
-  </section>
-
-  <section id="disenador">
-    <h2>Perfumes de Diseñador</h2>
-    <div class="swiper disenador-swiper">
-      <div class="swiper-wrapper" id="swiper-disenador"></div>
-      <div class="swiper-pagination"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-    </div>
-  </section>
-
-  <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script type="module" src="js/index.js"></script> 
+ 
 
 
 </body>

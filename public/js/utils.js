@@ -12,7 +12,7 @@ export function renderCarrusel(lista, contenedorId) {
     let precioMinimo = "N/A";
     if (Array.isArray(producto.presentaciones) && producto.presentaciones.length > 0) {
       const ordenadas = producto.presentaciones.sort((a, b) => a.precio - b.precio);
-      precioMinimo = `$${ordenadas[0].precio} MXN (${ordenadas[0].tamanio})`;
+      precioMinimo = ` Desde : $${ordenadas[0].precio} (${ordenadas[0].tamanio})`;
     }
 
     slide.innerHTML = `
@@ -38,7 +38,7 @@ export function initSwiper(selector) {
   const totalSlides = container ? container.children.length : 0;
 
   new Swiper(selector, {
-    slidesPerView: 1,
+    slidesPerView: 4,
     spaceBetween: 10,
     loop: totalSlides > 3, // Activamos loop solo si hay suficientes slides
     pagination: {
@@ -55,7 +55,7 @@ export function initSwiper(selector) {
         spaceBetween: 15,
       },
       1024: {
-        slidesPerView: 3,
+        slidesPerView: 4,
         spaceBetween: 20,
       },
     },

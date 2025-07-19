@@ -1,23 +1,28 @@
-const API_BASE_URL = location.hostname === "localhost"
-  ? "http://localhost:3000/api"
-  : "https://decantsnap-backend.onrender.com";
+// config.js
+import { API_BASE_URL } from '../../models/config.js';
 
+
+document.addEventListener('DOMContentLoaded', () => {
 const formulario = document.getElementById('formulario-producto');
 const mensaje = document.getElementById('mensaje');
 const presentacionesDiv = document.getElementById('presentaciones');
 const agregarPresentacionBtn = document.getElementById('agregar-presentacion');
+const imagenInput = document.getElementById('imagenUrl');
 const previewImg = document.getElementById('preview-img');
 
 // Mostrar preview de imagen
-document.getElementById('imagenUrl').addEventListener('input', (e) => {
-  const url = e.target.value;
-  if (url) {
-    previewImg.src = url;
-    previewImg.style.display = 'block';
-  } else {
-    previewImg.style.display = 'none';
+  if (imagenInput && previewImg) {
+    imagenInput.addEventListener('input', (e) => {
+      const url = e.target.value;
+      if (url) {
+        previewImg.src = url;
+        previewImg.style.display = 'block';
+      } else {
+        previewImg.style.display = 'none';
+      }
+    });
   }
-});
+
 
 // Agregar nueva presentación
 agregarPresentacionBtn.addEventListener('click', () => {
@@ -50,21 +55,21 @@ formulario.addEventListener('submit', async (e) => {
     nombre: document.getElementById('nombre').value,
     marca: document.getElementById('marca').value,
     descripcion: document.getElementById('descripcion').value,
-    imagen: document.getElementById('imagenUrl').value,
+    imagenUrl: document.getElementById('imagenUrl').value,
     notas: document.getElementById('notas').value.split(',').map(n => n.trim()),
     tipo: document.getElementById('tipo').value,
     presentaciones
   };
 
   const id = formulario.dataset.editandoId;
-
+ 
   try {
     const res = await fetch(`${API_BASE_URL}/productos${id ? `/${id}` : ''}`, {
       method: id ? 'PATCH' : 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(producto)
     });
-
+      const data = await res.json();
     if (res.ok) {
       mensaje.textContent = id ? '✅ Producto actualizado' : '✅ Producto agregado';
       formulario.reset();
@@ -91,11 +96,19 @@ async function cargarProductos() {
   productos.forEach(p => {
     const fila = document.createElement('tr');
     fila.innerHTML = `
+      <td><img src="${p.imagenUrl}" alt="${p.nombre}" style="width: 60px; height: auto; border-radius: 6px;"></td>
       <td>${p.nombre}</td>
       <td>${p.marca}</td>
       <td>${p.tipo}</td>
-      <td>${p.presentaciones?.[0]?.precio || 'N/A'}</td>
-      <td>
+        <td>
+          ${
+            Array.isArray(p.presentaciones)
+              ? p.presentaciones.map(pre => `
+                  <div>${pre.tamanio}: $${pre.precio}</div>
+                `).join('')
+              : 'N/A'
+          }
+        </td>
         <button class="btn-editar" onclick="editarProducto('${p._id}')">Editar</button>
         <button class="btn-eliminar" onclick="eliminarProducto('${p._id}')">Eliminar</button>
       </td>
@@ -167,3 +180,5 @@ async function editarProducto(id) {
     alert('❌ Error al cargar producto');
   }
 }
+
+});
